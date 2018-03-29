@@ -3,8 +3,8 @@
 // ------------------------------------
 
 // Cores do site
-$cor_primaria: #f58322;
-$cor_secundaria: #222222;
+$cor_primaria: #000;
+$cor_secundaria: blue;
 
 // Fundo 2 (Cor alternativa para o fundo do site)
 $cor_fundo2: #E7E7E7;
@@ -27,10 +27,10 @@ $cor_tripadvisor: #83B957;
 // ------------------------------------
 
 // Fonte destaque (TÍTULOS)
-$fonte_titulo: 'Oswald', 'Helvetica', 'Arial', sans-serif;
+$fonte_titulo: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
 
 // Fonte geral (TEXTO)
-$fonte_geral: 'Lato', 'Helvetica', 'Arial', sans-serif;
+$fonte_geral: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
 
 // Cores da fonte
 $cor_fonte_escura: #333;
@@ -75,10 +75,13 @@ $z_index_mascara: 8;
 
 // Body
 body {
-	background: #FFF;
+	background-color: #000;
+	background-image: url('../../assets/img/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	font-family: $fonte_geral;
 	font-size: 16px;
-	color: $cor_fonte_clara;
+	color: #FFF;
 
 	// MOBILE
 	@include mq(s) {
