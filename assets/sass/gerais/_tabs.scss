@@ -1,0 +1,57 @@
+.tabs {
+
+}
+
+// Abas
+.tabs-abas {
+	float: left;
+	width: 100%;
+	
+	// Aba (Item)
+	li {
+		width: auto;
+		display: block;
+		float: left;
+		text-align: center;
+		cursor: pointer;
+		padding: 15px;
+		transition: .3s ease-out;
+		color: $cor_fonte_escura;
+		box-shadow: inset 0px -3px 0px 0px #DDD;
+
+		&:hover {
+			background: rgba(0, 0, 0, .05);
+		}
+
+		@include mq(s) {
+			width: 100% !important;
+		}
+
+		&.active {
+			box-shadow: inset 0px -3px 0px 0px $cor_primaria;
+			background: rgba(0, 0, 0, .05);
+			cursor: default;
+		}
+		
+		span {
+			vertical-align: top;
+		}
+
+		i {
+			font-size: 24px;
+			margin-right: 10px;
+		}
+	}
+}
+
+// Conteúdo
+.tab-content {
+	display: none;
+	float: left;
+	width: 100%;
+
+	// Exibe
+	&.active {
+		display: block;
+	}
+}

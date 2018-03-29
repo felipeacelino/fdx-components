@@ -1,0 +1,56 @@
+// Header principal
+.header {
+	position: relative;
+	z-index: $z_index_header;
+	float: left;
+	width: 100%;
+	background: #FFF;
+	padding: 20px 0;
+	
+	// MOBILE
+	@include mq(s) {	
+		position: fixed;
+		top: 0;
+		left: 0;
+		padding: 10px 0;
+		text-align: center;
+		box-shadow: 0 2px 5px rgba(0,0,0,.26);
+	}
+}
+
+// Logo
+.header-logo {
+	float: left;
+	max-width: 120px;
+	width: auto;
+
+	// MOBILE
+	@include mq(s) {	
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+		max-width: 55px;
+	}
+
+	// TABLET
+	@include mq(m) {				
+		max-width: 100px;
+	}
+}
+
+// Direita
+.header-direita {
+	float: right;
+	width: auto;
+	margin-top: 20px;
+
+	// TABLET
+	@include mq(m) {				
+		margin-top: 10px;
+	}
+
+	// MOBILE
+	@include mq(s) {				
+		display: none;
+	}
+}

@@ -1,0 +1,214 @@
+// Footer geral
+.footer {
+	position: relative;
+	height: 300px;
+	padding-top:40px;
+	padding-bottom: 40px;
+	background: darken($cor_secundaria, 5%);
+	overflow: hidden;
+
+	// MOBILE
+	@include mq(s) {
+		height: auto;	
+		padding-bottom: 0px;
+	}
+}
+
+// Coluna
+.footer-bloco {
+	// Título
+	> h2 {
+		font-family: $fonte_titulo;
+		color: #FFF;
+		font-size: 24px;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+}
+
+// Facebook
+.footer-facebook {
+	padding-right: 20px;
+	overflow: hidden;
+
+	// MOBILE
+	@include mq(s) {
+		padding-right: 0px;
+		margin-bottom: 40px;
+	}
+}
+
+// Newsletter
+.footer-newsletter {
+	padding: 0 40px;
+	border-left: 1px dotted #666;
+	border-right: 1px dotted #666;
+
+	// MOBILE
+	@include mq(s) {
+		border-left: none;
+		border-right: none;	
+		padding: 0px;
+		margin-bottom: 40px;
+	}
+
+	// Texto
+	.texto {
+		color: #FFF;
+		margin-bottom: 10px;
+
+		// TABLET
+		@include mq(m) {
+			display: none;
+		}
+	}
+
+	// Campo
+	.campo-container {
+		float: left;
+		width: calc(100% - 100px);
+		margin: 0px;
+	
+		// TABLET
+		@include mq(m) {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		// Campo
+		.campo {			
+			height: 40px;			
+			border: none !important;
+		}
+	}		
+
+	// Botão
+	.btn {
+		float: left;
+		width: 100px;
+		height: 40px;
+		padding: 0px;
+
+		// TABLET
+		@include mq(m) {
+			width: 100%;
+		}
+	}
+}
+
+// Atendimento
+.footer-atendimento {
+	padding-left: 20px;
+
+	// MOBILE
+	@include mq(s) {
+		padding-left: 0px;
+	}
+
+	// MOBILE
+	@include mq(s) {
+		padding-left: 0px;
+	}
+
+	// Texto
+	.texto {
+		color: #FFF;
+	}
+
+	// Itens
+	li {
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 10px;
+		color: #FFF;
+		font-size: 15px;
+		line-height: 21px;
+		
+		// Ícone
+		i {
+			margin-right: 10px;
+			transform: scaleX(-1);
+		}
+
+		a {
+			color: #FFF !important;	
+		}
+	}
+}
+
+// Barra footer
+.barra-footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	float: left;
+	width: 100%;
+	background: darken($cor_secundaria, 10%);
+	padding: 10px 0;
+	font-family: $fonte-geral;
+	font-size: 14px;
+	color: #FFF;
+
+	// MOBILE
+	@include mq(s) {
+		position: static;
+		margin-top: 40px;	
+	}
+
+	.left {
+		text-align: left;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	[class^="grid-"] {
+		@include mq(s) {
+			text-align: center !important;
+			margin-bottom: 10px;
+		}
+	}
+
+	.link {
+		color: $cor_primaria;
+	}	
+
+	// Da um padding-top nos textos para alianhar as redes sociais
+	.grid-4:not(.redes-sociais) {
+		padding-top: 12px;
+	}
+}
+
+// Redes sociais
+.redes-sociais {
+	// Item
+	a {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		line-height: 43px;
+		border-radius: 50%;
+		border: 1px solid #FFF;
+		text-align: center;
+		margin-right: 5px;
+		transition: .3s ease-out;
+
+		&:hover {
+			background: #FFF;
+		}
+
+		i {
+			color: #FFF;
+			font-size: 20px;
+			transition: .3s ease-out;
+		}
+		&:hover i {
+			color: $cor_secundaria;
+		}
+	}
+}

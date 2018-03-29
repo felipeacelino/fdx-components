@@ -1,0 +1,567 @@
+// ------------------------------------
+//	VARIÁVEIS
+// ------------------------------------
+
+// Cores do site
+$cor_primaria: #f58322;
+$cor_secundaria: #222222;
+
+// Fundo 2 (Cor alternativa para o fundo do site)
+$cor_fundo2: #E7E7E7;
+
+// Status
+$success_color: #00C851;
+$warning_color: #FFBB33;
+$error_color: #FF4444;
+
+// Redes socias
+$cor_facebook: #3B5998;
+$cor_twitter: #1DA1F2;
+$cor_youtube: #FE0000;
+$cor_instagram: #C12595;
+$cor_twitter: #1DA1F2;
+$cor_tripadvisor: #83B957;
+
+// ------------------------------------
+//	FONTES
+// ------------------------------------
+
+// Fonte destaque (TÍTULOS)
+$fonte_titulo: 'Oswald', 'Helvetica', 'Arial', sans-serif;
+
+// Fonte geral (TEXTO)
+$fonte_geral: 'Lato', 'Helvetica', 'Arial', sans-serif;
+
+// Cores da fonte
+$cor_fonte_escura: #333;
+$cor_fonte_clara: #666;
+
+// Z-index (Z-INDEX de cada elemento do layout)
+$z_index_geral: 2;
+$z_index_menu: 4;
+$z_index_header: 5;
+$z_index_gotop: 5;
+$z_index_menu_mobile: 6;
+$z_index_modal: 7;
+$z_index_mascara: 8;
+
+// ------------------------------------
+//	GERAIS
+// ------------------------------------
+
+// Box-sizing
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+// Remove outline de foco do firefox e outros browsers
+:focus {
+	outline:none;
+}
+::-moz-focus-inner {
+	border:0;
+}
+
+// Cor do texto selecionado
+::selection, ::-moz-selection {
+    background: $cor_primaria;
+    color: #FFF;
+}
+
+// Remove o fundo azul de itens clicados no chrome para android
+* {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+// Body
+body {
+	background: #FFF;
+	font-family: $fonte_geral;
+	font-size: 16px;
+	color: $cor_fonte_clara;
+
+	// MOBILE
+	@include mq(s) {
+		padding-top: 55px;	
+	}
+}
+
+// Fix imagens
+img {
+	display: block;
+	max-width: 100%;
+}
+
+// Wrapper
+/* Elemento que segura todo o conteúdo do site (exceto o footer)
+Utilizado para impedir que o footer suba quando há pouco conteúdo
+ou quando a resolução da tela é maior. */
+.wrapper {
+	min-height: calc(100vh - 300px);
+}
+
+// Seções
+.secao {
+	float: left;
+	width: 100%;
+	padding-top: 60px;
+	padding-bottom: 60px;
+
+	// MOBILE
+	@include mq(s) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
+
+// ------------------------------------
+//	TEXTOS
+// ------------------------------------
+
+// Título
+.titulo {
+	float: left;
+	width: 100%;
+	position: relative;
+	font-family: $fonte_titulo;
+	font-size: 28px;
+	color: $cor_fonte_escura;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 60px;
+		
+	// Linha inferior
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -15px;
+		margin: 0 auto;
+		width: 100px;
+		height: 3px;
+		background: $cor_primaria;
+	}
+}
+
+// Subtítulo
+.subtitulo {
+	font-family: $fonte_geral;
+	font-size: 24px;
+	color: $cor_fonte_escura;
+	text-align: center;
+	margin-top: -20px;
+	margin-bottom: 60px;
+}
+
+// Texto geral
+.texto {
+	font-family: $fonte_geral;
+	font-size: 16px;
+	line-height: 24px;
+	color: $cor_fonte_clara;
+
+	b, strong {
+		font-weight: bold;
+		color: $cor_fonte_escura;
+	}
+}
+
+// Texto (Sem registros)
+.empty {
+	text-align: center;
+	min-height: 100px;
+
+	h2 {
+		font-family: $fonte_geral;
+		font-size: 24px;
+		color: $cor_fonte_escura;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-family: $fonte_geral;
+		color: $cor_fonte_clara;
+	}
+
+	b {
+		font-weight: bold;
+		color: $cor_fonte_escura;
+	}
+}
+
+// Links
+a, a:hover, a:visited, a:focus, a:active {
+	outline: none;
+	text-decoration: none;
+}
+.link {
+	font-family: $fonte_geral;
+	transition: .2s; 
+	color: $cor_primaria;
+
+	&:active, &:focus, &:visited { 
+    	color: $cor_primaria;
+	}
+
+	&:hover {
+		color: $cor_secundaria !important;
+	}
+}
+
+// ------------------------------------
+//	FORMULÁRIOS
+// ------------------------------------
+
+// Inputs
+.campo-container {
+	position: relative;
+	margin-bottom: 20px;
+
+	label {
+		display: inline-block;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+}
+
+.campo {
+	width: 100%;
+	border: 2px solid #DDD;
+	border-radius: 0px;
+	background: #FFF;
+	outline: none;
+	box-shadow: none;
+	height: 45px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: $fonte_geral;
+	font-size: 16px;
+	font-weight: normal;
+	color: $cor_fonte_escura;
+	@include placeholder($cor_fonte_clara);
+	transition: .3s;
+
+	&:focus {
+		border-color: $cor_primaria;
+	}
+}
+
+// Textarea
+textarea.campo {
+	height: auto;
+	padding: 15px;
+	resize: none;
+}
+
+// Checkbox, Radios e Select
+.control {
+	display: inline-block;
+	position: relative;
+	padding-left: 30px;
+	cursor: pointer;
+	font-family: $fonte_geral;
+	font-size: 15px;
+	color: $cor_fonte_escura;
+}
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background: #DDD;
+	border: 2px solid #DDD;
+}
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #DDD;
+	border-color: #DDD;
+}
+.control input:checked ~ .control__indicator {
+	background: $cor_primaria;
+	border-color: $cor_primaria;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: $cor_primaria;
+	border-color: $cor_primaria;
+}
+.control input:disabled ~ .control__indicator {
+	background: #DDD;
+	opacity: 0.6;
+	pointer-events: none;
+}
+.control__indicator:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+.control--checkbox .control__indicator:after {
+	left: 6px;
+	top: 3px;
+	width: 5px;
+	height: 9px;
+	border: solid #FFF;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #DDD;
+}
+.control--radio .control__indicator:after {
+	left: 5px;
+	top: 5px;
+	height: 6px;
+	width: 6px;
+	border-radius: 50%;
+	background: #FFF;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+	background: #DDD;
+}
+.select {
+	position: relative;
+	display: inline-block;
+}
+.select select {
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+	padding: 10px 15px;
+	padding-right: 30px;
+	outline: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	font-family: $fonte_geral;
+	font-size: 15px;
+	color: $cor_fonte_escura;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.select select::-ms-expand {
+	display: none;
+}
+.select select:hover,
+.select select:focus {
+	background: rgba($cor_fonte_escura, .1);;
+}
+.select select:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	color: #DDD;
+}
+.select__arrow {
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-style: solid;
+	border-width: 8px 5px 0 5px;
+	border-color: $cor_fonte_escura transparent transparent transparent;
+}
+.select select:hover ~ .select__arrow,
+.select select:focus ~ .select__arrow {
+	border-top-color: $cor_fonte_escura;
+}
+.select select:disabled ~ .select__arrow {
+	border-top-color: #DDD;
+}
+.select.campo {
+	padding: 0px;
+
+	select {
+		color: $cor_fonte_escura;
+
+		&:hover, &:focus {
+			background: none;
+		}
+	}	
+
+	.select__arrow {
+		top: 18px;
+		right: 15px;
+	}
+}
+
+// Validação de formulário
+.show-validacao.valid::after {
+	content: "\f058";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: $success_color;
+    font-size: em(20);
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    right: 10px;
+}
+.parsley-errors-list {
+	position: relative;
+	width: 100%;
+
+  	li {
+  		z-index: $z_index_geral;
+  		position: absolute;
+  		left: 0;
+  		right: 0;
+  		margin-left: auto;
+  		margin-right: auto;
+  		width: 90%;
+  		display: block;
+  		margin-top: 10px;
+  		padding: 10px;
+  		background: $error_color;
+  		color: #FFF;
+  		font-size: 14px;
+  		text-align: center;
+  		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 
+					0 3px 6px rgba(0,0,0,0.23);
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -8px;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 10px 10px 10px;
+			border-color: transparent transparent $error_color transparent;
+		}
+  	}
+}
+
+// ------------------------------------
+//	BOTÕES
+// ------------------------------------
+
+// Botão padrão
+.btn {
+	display: inline-block;
+	vertical-align: middle;
+	width: auto;
+	background: none;
+	border: 2px solid $cor_primaria;
+	border-radius: 0px;
+	font-family: $fonte_titulo;
+	font-size: 18px;
+	line-height: 100%;
+	text-transform: uppercase;
+	color: $cor_primaria;	
+	text-align: center;
+	padding: 15px 50px;
+	outline: none;
+	cursor: pointer;	
+	transition: .3s ease-out;
+
+	&:hover, &:focus, &:active, &.active {
+		background: $cor_primaria;
+		color: #FFF;
+	} 
+
+	&[disabled] {
+		opacity: .5;
+		cursor: default;
+	}
+
+	i {
+		margin-right: 10px;
+	}
+}
+
+// Botão neutro
+.btn-default {
+	color: #666;
+	background: rgba(0,0,0,.1);
+
+	&:hover, &:focus, &:active {
+		color: #333;
+		background: rgba(0,0,0,.15);
+	} 
+}
+
+// Botão container
+.btn-container {
+	float: left;
+	width: 100%;
+	text-align: center;
+
+	&.left {
+		text-align: left;
+	}
+
+	&.right {
+		text-align: right;
+	}
+}
+
+// ------------------------------------
+//	VOLTAR AO TOPO
+// ------------------------------------
+.gotop {
+	position: fixed;
+	z-index: $z_index_gotop;
+	bottom: 20px; 
+    right: 20px;
+	width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+	background: rgba($cor_primaria,.8);
+	cursor: pointer;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.3); 
+	transform: translate(0,100px);
+	opacity: 0;
+	visibility: hidden;
+    transition: .3s ease-out;
+
+    &:hover { 
+        background: rgba($cor_primaria,1);
+    }
+
+    &.active { 
+        transform: translate(0,0);
+        opacity: 1;
+		visibility: visible;
+    }
+    
+    &::before { 
+        content: ''; 
+        position: absolute; 
+        top: 0px; 
+        bottom: 0px; 
+        left: 0px; 
+        right: 0px; 
+        margin: auto; 
+        display: block; 
+        width: 15px; 
+        height: 15px; 
+        border: 2px solid #FFF; 
+        transform: rotate(45deg); 
+        border-bottom: none; 
+        border-right: none; 
+        margin-top: 20px; 
+    }
+}

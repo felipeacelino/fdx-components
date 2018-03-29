@@ -1,0 +1,44 @@
+// ------------------------------------
+//	LIB
+// ------------------------------------
+
+// Slick
+@import 'lib/slick';
+// Lightbox
+@import 'lib/lightbox';
+
+// ------------------------------------
+//	GERAIS
+// ------------------------------------
+
+// Reset
+@import 'gerais/reset';
+// Mixins (Funções)
+@import 'gerais/mixins';
+// Grid
+@import 'gerais/grid';
+// Geral
+@import 'gerais/geral';
+// Loadings
+@import 'gerais/loading';
+// Modal
+@import 'gerais/modal';
+// Tabs
+@import 'gerais/tabs';
+// Slick
+@import 'lib/slick-theme';
+
+// ------------------------------------
+//	ESTRUTURA
+// ------------------------------------
+
+// Header
+@import 'estrutura/header';
+// Footer
+@import 'estrutura/footer';
+// Paginação
+@import 'estrutura/paginacao';
+// Slide
+@import 'estrutura/slide';
+// Manutenção
+@import 'estrutura/manutencao';

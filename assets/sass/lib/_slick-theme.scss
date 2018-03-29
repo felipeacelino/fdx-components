@@ -1,0 +1,97 @@
+/* Arrows */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 45%;
+    -webkit-transform: translate(0, -45%);
+    -ms-transform: translate(0, -45%);
+    transform: translate(0, -45%);
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index: 1;
+    border-top: 3px solid rgba(#222, .5);
+    border-right: 3px solid rgba(#222, .5);
+    transition: .2s ease-out;
+    @include mq(s) {
+        top: 40%;
+    }
+    &:hover, &:focus {
+        outline: none;
+        background: transparent;
+        color: transparent;
+        border-color: rgba(#222, 1);
+    }
+    &.slick-disabled:before {
+        border-color: rgba(#222, .5);
+    }
+}
+
+.slick-prev {
+    transform: rotate(225deg);
+    left: -20px;
+}
+
+.slick-next {
+    transform: rotate(45deg);
+    right: -20px;
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 15px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        text-align: center;
+        button {
+            border: 0;
+            background: rgba(#FFF, .5);
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            padding: 0;
+            outline: none;
+            color: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: .2s ease-out;
+            &:hover, &:focus {
+               background: rgba(#FFF, .7);
+            }
+        }
+        &.slick-active button {
+            background: $cor_primaria;
+        }
+    }
+}
+
+.carrosel {
+    float: left;
+    width: 100%;
+    width: calc(100% - 50px);
+    margin-left: 25px;
+}
