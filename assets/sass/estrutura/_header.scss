@@ -1,13 +1,16 @@
 // Header
 .header {
-	float: left;
-	width: 100%;
+	position: relative;
 	height: 100vh;
 	text-align: center;
+	background-image: url('../../assets/img/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 
 	// MOBILE
 	@include mq(s) {
-		height: calc(100vh - 50px);
+		height: auto;
+		min-height: 100vh;
 	}
 
 	// Container
@@ -25,52 +28,55 @@
 	// Wrap
 	.header-wrap {
 		width: 100%;
-		height: auto;
+		height: 320px;
+
+		// MOBILE
+		@include mq(s) {
+			height: auto;
+		}
 	}
 
 	// Title
 	h1 {
-		float: left;
-		width: 100%;
 		font-family: $fonte_titulo;
 		font-size: 72px;
 		font-weight: 700;
 		color: #FFF;
-		margin-top: 50px;
-		margin-bottom: 50px;
+		text-align: left;
+		margin-bottom: 40px;
 
 		// TABLET
 		@include mq(m) {
-			margin-top: 0px;
+			text-align: center;
 		}
 
 		// MOBILE
 		@include mq(s) {
-			margin-top: 0px;
-			font-size: 32px;
+			font-size: 36px;
+			margin-bottom: 40px;
+			text-align: center;
 		}
 	}
 
 	// Subtitle
 	h2 {
-		float: left;
-		width: 100%;
 		font-family: $fonte_titulo;
 		font-size: 28px;
+		line-height: 42px;
 		color: #FFF;
 		text-align: left;
+		margin-bottom: 30px;
 
 		// TABLET
 		@include mq(m) {
-			margin-bottom: 50px;
 			text-align: center;
 		}
 
 		// MOBILE
 		@include mq(s) {
-			margin-bottom: 50px;
+			font-size: 18px;
+			line-height: 26px;
 			text-align: center;
-			font-size: 20px;
 		}
 	}
 
@@ -79,20 +85,82 @@
 		display: inline-block;
 		width: 300px;
 		height: 300px;
+		margin-top: 10px;
 		border-radius: 50%;
-		border: 10px solid $cor_primaria;
+		border: 10px solid #FFF;
 		overflow: hidden;
-		background: $cor_primaria;
+		background: #FFF;
+
+		// TABLET
+		@include mq(m) {
+			display: none;
+		}
 
 		// MOBILE
 		@include mq(s) {
-			width: 250px;
-			height: 250px;
+			display: none;
 		}
 	}
 
 	// Botões
-	.btn-container {
-		margin-top: 50px;
+	.btn {
+		margin: 20px;
+
+		// MOBILE
+		@include mq(s) {
+			margin: 10px;
+		}
+	}
+}
+
+// Scroll helper
+.header-scroll {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -50px;
+	width: 30px;
+	height: 50px;
+	margin: 0 auto;
+	border: 2px solid #FFF;
+	border-radius: 15px;
+
+	// MOBILE
+	@include mq(s) {
+		display: none;
+	}
+
+	// Scroller
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 10px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #FFF;
+		animation: scroll 1s infinite;
+	}
+
+	&:hover {
+		border-color: $cor_secundaria;
+
+		&::after {
+			background: $cor_secundaria;
+		}
+	}
+}
+
+// Scroll animation
+@keyframes scroll {
+	0% {
+		transform: translate(0,0);
+	}
+	100% {
+		transform: translate(0,15px);
 	}
 }

@@ -3,7 +3,7 @@
 // ------------------------------------
 
 // Cores do site
-$cor_primaria: #222;
+$cor_primaria: #040404;
 $cor_secundaria: #C6FF00;
 
 // Fundo 2 (Cor alternativa para o fundo do site)
@@ -63,9 +63,13 @@ $z_index_mascara: 8;
 }
 
 // Cor do texto selecionado
-::selection, ::-moz-selection {
-    background: $cor_primaria;
-    color: #FFF;
+::selection {
+	background: $cor_secundaria;
+	color: $cor_primaria;
+}
+::-moz-selection {
+	background: $cor_secundaria;
+	color: $cor_primaria;
 }
 
 // Remove o fundo azul de itens clicados no chrome para android
@@ -75,18 +79,10 @@ $z_index_mascara: 8;
 
 // Body
 body {
-	background-color: #000;
-	background-image: url('../../assets/img/background.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-color: $cor_primaria;
 	font-family: $fonte_geral;
 	font-size: 16px;
 	color: #FFF;
-
-	// MOBILE
-	@include mq(s) {
-		padding-top: 55px;	
-	}
 }
 
 // Fix imagens
@@ -109,7 +105,7 @@ ou quando a resolução da tela é maior. */
 	width: 100%;
 	padding-top: 60px;
 	padding-bottom: 60px;
-
+	
 	// MOBILE
 	@include mq(s) {
 		padding-top: 40px;
@@ -132,7 +128,7 @@ ou quando a resolução da tela é maior. */
 	text-align: center;
 	text-transform: uppercase;
 	margin-bottom: 60px;
-		
+	
 	// Linha inferior
 	&::after {
 		content: '';
@@ -164,7 +160,7 @@ ou quando a resolução da tela é maior. */
 	font-size: 16px;
 	line-height: 24px;
 	color: $cor_fonte_clara;
-
+	
 	b, strong {
 		font-weight: bold;
 		color: $cor_fonte_escura;
@@ -175,19 +171,19 @@ ou quando a resolução da tela é maior. */
 .empty {
 	text-align: center;
 	min-height: 100px;
-
+	
 	h2 {
 		font-family: $fonte_geral;
 		font-size: 24px;
 		color: $cor_fonte_escura;
 		margin-bottom: 10px;
 	}
-
+	
 	p {
 		font-family: $fonte_geral;
 		color: $cor_fonte_clara;
 	}
-
+	
 	b {
 		font-weight: bold;
 		color: $cor_fonte_escura;
@@ -203,11 +199,11 @@ a, a:hover, a:visited, a:focus, a:active {
 	font-family: $fonte_geral;
 	transition: .2s; 
 	color: $cor_primaria;
-
+	
 	&:active, &:focus, &:visited { 
-    	color: $cor_primaria;
+		color: $cor_primaria;
 	}
-
+	
 	&:hover {
 		color: $cor_secundaria !important;
 	}
@@ -221,7 +217,7 @@ a, a:hover, a:visited, a:focus, a:active {
 .campo-container {
 	position: relative;
 	margin-bottom: 20px;
-
+	
 	label {
 		display: inline-block;
 		font-weight: bold;
@@ -245,7 +241,7 @@ a, a:hover, a:visited, a:focus, a:active {
 	color: $cor_fonte_escura;
 	@include placeholder($cor_fonte_clara);
 	transition: .3s;
-
+	
 	&:focus {
 		border-color: $cor_primaria;
 	}
@@ -388,15 +384,15 @@ textarea.campo {
 }
 .select.campo {
 	padding: 0px;
-
+	
 	select {
 		color: $cor_fonte_escura;
-
+		
 		&:hover, &:focus {
 			background: none;
 		}
 	}	
-
+	
 	.select__arrow {
 		top: 18px;
 		right: 15px;
@@ -406,39 +402,39 @@ textarea.campo {
 // Validação de formulário
 .show-validacao.valid::after {
 	content: "\f058";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    color: $success_color;
-    font-size: em(20);
-    position: absolute;
-    z-index: 2;
-    bottom: 10px;
-    right: 10px;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	color: $success_color;
+	font-size: em(20);
+	position: absolute;
+	z-index: 2;
+	bottom: 10px;
+	right: 10px;
 }
 .parsley-errors-list {
 	position: relative;
 	width: 100%;
-
-  	li {
-  		z-index: $z_index_geral;
-  		position: absolute;
-  		left: 0;
-  		right: 0;
-  		margin-left: auto;
-  		margin-right: auto;
-  		width: 90%;
-  		display: block;
-  		margin-top: 10px;
-  		padding: 10px;
-  		background: $error_color;
-  		color: #FFF;
-  		font-size: 14px;
-  		text-align: center;
-  		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 
-					0 3px 6px rgba(0,0,0,0.23);
-
+	
+	li {
+		z-index: $z_index_geral;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		display: block;
+		margin-top: 10px;
+		padding: 10px;
+		background: $error_color;
+		color: #FFF;
+		font-size: 14px;
+		text-align: center;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 
+		0 3px 6px rgba(0,0,0,0.23);
+		
 		&::before {
 			content: '';
 			display: block;
@@ -454,7 +450,7 @@ textarea.campo {
 			border-width: 0 10px 10px 10px;
 			border-color: transparent transparent $error_color transparent;
 		}
-  	}
+	}
 }
 
 // ------------------------------------
@@ -463,58 +459,39 @@ textarea.campo {
 
 // Botão padrão
 .btn {
-	position: relative;
 	display: inline-block;
-	vertical-align: middle;
-	width: auto;
+	padding: 20px 30px;
 	background: $cor_secundaria;
-	border: 2px solid $cor_secundaria;
-	border-radius: 0px;
-	font-family: $fonte_titulo;
-	font-size: 18px;
-	line-height: 100%;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: $cor_primaria;	
-	text-align: center;
-	padding: 15px 50px;
+	border: none;
 	outline: none;
-	cursor: pointer;	
-	transition: .3s ease-out;
-
-	&:hover, &:focus, &:active, &.active {
-		/* background: $cor_secundaria;
-		color: $cor_primaria; */
-
-		&::before {
-			transform: translate(0, 0);
-		}
-	} 
+	color: $cor_primaria;
+	font-family: $fonte_geral;
+	font-weight: 700;
+	font-size: 18px;
+	border-radius: 3px;
+	box-shadow: 0 5px 0px darken($cor_secundaria,5%);
+	border-bottom: 2px solid darken($cor_secundaria,10%);
+	
+	&:hover{
+		background: darken($cor_secundaria,5%);
+		box-shadow: 0 4px 1px darken($cor_secundaria,10%);
+		border-bottom: 2px solid darken($cor_secundaria,15%);
+		transition: all 0.1s ease-in;
+	}
+	
+	&:active{
+		transform:translateY(4px);
+		border-bottom-width: 2px;
+		box-shadow: none;
+	}
 
 	&[disabled] {
 		opacity: .5;
 		cursor: default;
 	}
-
+	
 	i {
 		margin-right: 10px;
-	}
-
-	// Hover
-	&::before {
-		content: '';
-		display: block;
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border: 2px solid $cor_secundaria;
-		transform: translate(10px, 10px);
-		transition: .3s ease-out;
 	}
 }
 
@@ -522,7 +499,7 @@ textarea.campo {
 .btn-default {
 	color: #666;
 	background: rgba(0,0,0,.1);
-
+	
 	&:hover, &:focus, &:active {
 		color: #333;
 		background: rgba(0,0,0,.15);
@@ -534,11 +511,11 @@ textarea.campo {
 	float: left;
 	width: 100%;
 	text-align: center;
-
+	
 	&.left {
 		text-align: left;
 	}
-
+	
 	&.right {
 		text-align: right;
 	}
@@ -551,43 +528,43 @@ textarea.campo {
 	position: fixed;
 	z-index: $z_index_gotop;
 	bottom: 20px; 
-    right: 20px;
+	right: 20px;
 	width: 50px; 
-    height: 50px;
-    border-radius: 50%; 
+	height: 50px;
+	border-radius: 50%; 
 	background: rgba($cor_primaria,.8);
 	cursor: pointer;
 	box-shadow: 0px 3px 5px rgba(0,0,0,0.3); 
 	transform: translate(0,100px);
 	opacity: 0;
 	visibility: hidden;
-    transition: .3s ease-out;
-
-    &:hover { 
-        background: rgba($cor_primaria,1);
-    }
-
-    &.active { 
-        transform: translate(0,0);
-        opacity: 1;
+	transition: .3s ease-out;
+	
+	&:hover { 
+		background: rgba($cor_primaria,1);
+	}
+	
+	&.active { 
+		transform: translate(0,0);
+		opacity: 1;
 		visibility: visible;
-    }
-    
-    &::before { 
-        content: ''; 
-        position: absolute; 
-        top: 0px; 
-        bottom: 0px; 
-        left: 0px; 
-        right: 0px; 
-        margin: auto; 
-        display: block; 
-        width: 15px; 
-        height: 15px; 
-        border: 2px solid #FFF; 
-        transform: rotate(45deg); 
-        border-bottom: none; 
-        border-right: none; 
-        margin-top: 20px; 
-    }
+	}
+	
+	&::before { 
+		content: ''; 
+		position: absolute; 
+		top: 0px; 
+		bottom: 0px; 
+		left: 0px; 
+		right: 0px; 
+		margin: auto; 
+		display: block; 
+		width: 15px; 
+		height: 15px; 
+		border: 2px solid #FFF; 
+		transform: rotate(45deg); 
+		border-bottom: none; 
+		border-right: none; 
+		margin-top: 20px; 
+	}
 }
